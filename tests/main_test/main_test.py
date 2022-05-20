@@ -2,9 +2,13 @@ import peapy
 
 
 def main():
-    config = peapy.config.get_default_config()
-    config.window.width = 1000
-    print(config)
+    game = peapy.PeaPy()
+
+    player = game.add_game_object(peapy.GameObject("Player"))
+    player.add_component(peapy.Component())
+
+    while game.update():
+        pass
 
 
 if __name__ == "__main__":

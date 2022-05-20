@@ -12,6 +12,7 @@ class Config:
 
         :param from_dict: A dictionary to initialize the Config object with.
         """
+
         if from_dict is None:
             from_dict = {}
 
@@ -50,6 +51,7 @@ class Config:
         :param tab_level: The number of tabs to add to the beginning of each line.
         :return: A string representation of the Config object.
         """
+
         output = ""
         for key, value in self.__dict__.items():
             if type(value) is Config:
@@ -71,6 +73,7 @@ def get_default_config() -> Config:
 
     :return: Config
     """
+
     return Config({
         "window": {
             "width": 800,
