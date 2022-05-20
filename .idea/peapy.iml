@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/docs/build" />
     </content>
+    <content url="file://$MODULE_DIR$/../peapy.wiki" />
     <orderEntry type="jdk" jdkName="Python 3.10 (peapy)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
