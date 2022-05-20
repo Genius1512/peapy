@@ -5,6 +5,10 @@
 - [Installation](#installation)
 - [License](#license)
 
+## Docs
+
+Docs are located [here](https://genius1512.github.io/peapy/).
+
 ## Installation
 
 Run this command to install the package:
