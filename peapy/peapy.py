@@ -1,5 +1,5 @@
-from . import exceptions
 from .config import Config, get_default_config
+from .exceptions import GameObject as exceptions
 from .game_object import GameObject
 
 
@@ -43,7 +43,7 @@ class PeaPy:
         """
 
         if game_object.name in self.game_objects:
-            raise exceptions.game_object.GameObjectAlreadyExists(game_object.name)
+            raise exceptions.GameObjectAlreadyExists(game_object.name)
 
         self.game_objects[game_object.name] = game_object
         game_object.init_(self)
@@ -58,7 +58,7 @@ class PeaPy:
         """
 
         if name not in self.game_objects:
-            raise exceptions.game_object.GameObjectDoesNotExist(name)
+            raise exceptions.GameObjectDoesNotExist(name)
 
         return self.game_objects[name]
 
@@ -79,7 +79,7 @@ class PeaPy:
         """
 
         if name not in self.game_objects:
-            raise exceptions.game_object.GameObjectDoesNotExist(name)
+            raise exceptions.GameObjectDoesNotExist(name)
 
         del self.game_objects[name]
 

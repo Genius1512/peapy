@@ -1,5 +1,5 @@
-from . import exceptions
 from .component import Component
+from .exceptions import Component as exceptions
 
 
 class GameObject:
@@ -74,7 +74,7 @@ class GameObject:
         """
 
         if component.__class__.__name__ in self.components:
-            raise exceptions.component.ComponentAlreadyExists(component.__class__.__name__)
+            raise exceptions.ComponentAlreadyExists(component.__class__.__name__)
 
         self.components[component.__class__.__name__] = component
         component.init_(self)
@@ -89,7 +89,7 @@ class GameObject:
         """
 
         if name not in self.components:
-            raise exceptions.component.ComponentDoesNotExist(name)
+            raise exceptions.ComponentDoesNotExist(name)
 
         return self.components[name]
 
@@ -110,7 +110,7 @@ class GameObject:
         """
 
         if name not in self.components:
-            raise exceptions.component.ComponentDoesNotExist(name)
+            raise exceptions.ComponentDoesNotExist(name)
 
         del self.components[name]
 

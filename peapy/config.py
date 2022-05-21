@@ -1,4 +1,4 @@
-from .exceptions import config as exceptions
+from .exceptions import Config as exceptions
 
 
 class Config:
