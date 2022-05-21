@@ -1,4 +1,4 @@
-from .exceptions import Config as exceptions
+from peapy.exceptions import Config as exceptions
 
 
 class Config:
@@ -74,14 +74,14 @@ def get_default_config() -> Config:
     :return: Config
     """
 
-    return Config({
-        "window": {
-            "width": 800,
-            "height": 600,
-            "title": "Peapy",
-            "icon": "icon.ico",
-        },
-        "colors": {
-            "background": "#000000"
+    return Config(
+        {
+            "window": {
+                "width": 800,
+                "height": 600,
+                "title": "Peapy",
+                "icon": "icon.ico",
+            },
+            "colors": {"background": "#000000"},
         }
-    })
+    )

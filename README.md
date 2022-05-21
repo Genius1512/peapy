@@ -3,11 +3,8 @@
 ## Contents
 
 - [Installation](#installation)
+- [Docs](#docs)
 - [License](#license)
-
-## Docs
-
-Docs are located [here](https://genius1512.github.io/peapy/).
 
 ## Installation
 
@@ -18,6 +15,10 @@ python -m pip install peapy
 ```
 
 The use of a virtual environment is recommended.
+
+## Docs
+
+Docs are located [here](https://genius1512.github.io/peapy/).
 
 ## License
 

@@ -1,7 +1,4 @@
-from .peapy import PeaPy
-
-
-def tree(game: PeaPy):
+def tree(game):
     """
     Print a tree of game objects and their components
 

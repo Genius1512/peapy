@@ -1,6 +1,7 @@
-from .config import Config, get_default_config
-from .exceptions import GameObject as exceptions
-from .game_object import GameObject
+from peapy import renderer
+from peapy.config import Config, get_default_config
+from peapy.exceptions import GameObject as exceptions
+from peapy.game_object import GameObject
 
 
 class PeaPy:
@@ -17,6 +18,17 @@ class PeaPy:
 
         self.config = config
 
+        self.window = renderer.display.set_mode(
+            (config.window.width, config.window.height)
+        )
+        renderer.display.set_caption(config.window.title)
+
+        self.clock = renderer.time.Clock()
+
+        self.delta_time: float = 0.0
+        self.fps: int = 0
+        self.frame_count: int = 0
+
         self.game_objects: dict[str, GameObject] = {}
 
     def update(self) -> bool:
@@ -26,10 +38,23 @@ class PeaPy:
         :return: True if the game should continue, False if the game should end.
         """
 
+        self.delta_time = self.clock.tick() / 1000.0
+        self.fps = self.clock.get_fps()
+        self.frame_count += 1
+
+        self.window.fill(self.config.colors.background)
+
+        for event in renderer.event.get():
+            if event.type == renderer.QUIT:
+                return False
+
         for game_object in self.game_objects.values():  # Loop through all game objects.
-            if not game_object.update_():  # Update the game object and check if it should continue.
+            if (
+                not game_object.update_()
+            ):  # Update the game object and check if it should continue.
                 return False  # Game should end.
 
+        renderer.display.update()
         return True
 
     def add_game_object(self, game_object: GameObject) -> GameObject:

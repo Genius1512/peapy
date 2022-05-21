@@ -1,5 +1,5 @@
-from .component import Component
-from .exceptions import Component as exceptions
+from peapy.component import Component
+from peapy.exceptions import Component as exceptions
 
 
 class GameObject:
@@ -49,7 +49,9 @@ class GameObject:
         """
 
         for component in self.components.values():  # Loop through all components.
-            if not component.update():  # Update the component and check if it should continue.
+            if (
+                not component.update()
+            ):  # Update the component and check if it should continue.
                 return False  # Game should end.
 
         return self.update()
